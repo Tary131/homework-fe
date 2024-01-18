@@ -24,11 +24,12 @@ import {
 } from "@mui/material";
 import styles from "./ShoppingList.module.css";
 import { useTranslation } from "react-i18next";
+import {useParams} from "react-router-dom";
 
 const ShoppingList = ({ darkMode }) => {
 	const [listName, setListName] = useState("List Name....");
 	const [items, setItems] = useState([]);
-
+	const {id} = useParams()
 	const [inputValue, setInputValue] = useState("");
 	const [totalItemCount, setTotalItemCount] = useState(0);
 	const [completedItemCount, setCompletedItemCount] = useState(0);
@@ -38,20 +39,21 @@ const ShoppingList = ({ darkMode }) => {
 	const [authorName, setAuthorName] = useState("");
 	const { t } = useTranslation();
 	const [data, setData] = useState({
-		listName: "",
-		items: [],
-		members: [],
-		authorName: "",
-		totalItemCount: 0,
-		completedItemCount: 0,
-		uncompletedItemCount: 0,
+		listName: undefined,
+		items: undefined,
+		members: undefined,
+		authorName: undefined,
+		totalItemCount: undefined,
+		completedItemCount: undefined,
+		uncompletedItemCount: undefined,
 	});
 
 	useEffect(() => {
 		fetchData();
-	}, []);
+	}, [id]);
 	const fetchData = async () => {
 		try {
+			if (!id) return;
 			const response = await fetch("http://localhost:3001/shoppingLists");
 
 			if (!response.ok) {
@@ -59,36 +61,15 @@ const ShoppingList = ({ darkMode }) => {
 			}
 
 			const fetchedData = await response.json();
-			console.log("Fetched Data:", fetchedData);
+			const fetchedItem = fetchedData.filter((item)=> item.id === id )[0]
 
-			const itemsArray = fetchedData.items || [];
 
-			if (!Array.isArray(itemsArray)) {
-				throw new Error("Invalid or missing 'items' property in fetched data");
+			if (!fetchedItem) {
+				throw new Error("Not found");
 			}
 
-			setData((prevData) => ({
-				...prevData,
-				listName: fetchedData.listName || "",
-				items: itemsArray,
-				authorName: fetchedData.authorName || "",
-				members: fetchedData.members || [],
-			}));
+			setData(fetchedItem);
 
-			const newTotalItemCount = itemsArray.reduce(
-				(total, item) => total + item.quantity,
-				0
-			);
-			const newCompletedItemCount = itemsArray.filter(
-				(item) => item.isSelected
-			).length;
-
-			setData((prevData) => ({
-				...prevData,
-				totalItemCount: newTotalItemCount,
-				completedItemCount: newCompletedItemCount,
-				uncompletedItemCount: newTotalItemCount - newCompletedItemCount,
-			}));
 		} catch (error) {
 			console.error("Error fetching shopping list:", error.message);
 		}
@@ -116,6 +97,18 @@ const ShoppingList = ({ darkMode }) => {
 	useEffect(() => {
 		setAuthorName("john");
 	}, []);
+
+	useEffect(()=>{
+		if (data)
+		{
+			if (data.listName)
+				setListName(data.listName)
+			if (data.authorName)
+				setAuthorName(data.authorName)
+
+		}
+
+	},[data])
 	const handleQuantityIncrease = (index) => {
 		const newItems = [...items];
 
