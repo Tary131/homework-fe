@@ -1,12 +1,12 @@
 .burger-menu {
-	display: none; /* Initially hide the burger menu on larger screens */
+	display: none;
 }
 .menu {
-	display: none; /* Initially hide the menu items on larger screens */
+	display: none;
 	flex-direction: column;
 	align-items: flex-end;
 	position: absolute;
-	top: 60px; /* Adjust the top position as needed */
+	top: 60px;
 	right: 0;
 	background-color: #fff;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -16,7 +16,7 @@
 }
 
 .menu.active {
-	display: flex; /* Show the menu when active class is present */
+	display: flex;
 }
 
 .root {

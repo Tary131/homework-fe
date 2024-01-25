@@ -16,8 +16,8 @@ const Header = ({ toggleDarkMode, darkMode, setIsAuth, isAuthenticated, onCreate
 		i18n.changeLanguage(newLanguage);
 	};
 	const onClickLogout = () => {
-		// Perform any necessary cleanup or additional logout logic here
-		setIsAuth(false); // Update authentication state to false
+
+		setIsAuth(false);
 	};
 
 
