@@ -4,7 +4,6 @@
 	"Log in": "Log in",
 	"Create account": "Create account",
 	"All Shopping Lists": "All Shopping Lists",
-
 	"Actual": "Actual",
 	"Archived": "Archived",
 	"Total Items": "All",
@@ -23,5 +22,8 @@
 	"New Member Email": "New Member Email",
 	"Add Member": "Add Member",
 	"Total": "Total",
-	"Completed": "Completed"
+	"Completed": "Completed",
+	"Password": "Password",
+	"E-Mail": "E-Mail",
+	"Register": "Register"
 }
