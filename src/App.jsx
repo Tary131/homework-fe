@@ -6,13 +6,16 @@ import { Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme, darkTheme } from "./theme.js";
 import i18n from "i18next";
+import Login from "./components/Login/Login.jsx"
+
 
 const App = () => {
 	const [darkMode, setDarkMode] = useState(false);
-
+	const [isAuthenticated, setIsAuthenticated] = useState(false);
 	const toggleDarkMode = () => {
 		setDarkMode((prevMode) => !prevMode);
 	};
+
 	return (
 		<div>
 			<Suspense fallback="loading...">
@@ -23,6 +26,7 @@ const App = () => {
 						i18n={i18n}
 						availableLanguages={["en", "ru"]}
 					/>
+					{isAuthenticated ? (
 					<Routes>
 						<Route
 							path="/shopping-list/:id"
@@ -36,7 +40,11 @@ const App = () => {
 							path="/shopping-list"
 							element={<ShoppingList darkMode={darkMode} />}
 						/>
-					</Routes>
+
+					</Routes>) : (
+
+						<Login setIsAuth={setIsAuthenticated} />
+						)}
 				</ThemeProvider>
 			</Suspense>
 		</div>

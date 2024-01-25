@@ -1,13 +1,16 @@
+
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 import Container from "@mui/material/Container";
 import { useTranslation } from "react-i18next";
 import "../../i18n.js";
 
-const Header = ({ toggleDarkMode, darkMode }) => {
-	const isAuth = true;
+const Header = ({ toggleDarkMode, darkMode, isAuthenticated }) => {
+
+
 	const { t, i18n } = useTranslation();
+	const navigate = useNavigate();
 	const changeLanguage = () => {
 		const newLanguage = i18n.language === "en" ? "cz" : "en";
 		i18n.changeLanguage(newLanguage);
@@ -19,11 +22,12 @@ const Header = ({ toggleDarkMode, darkMode }) => {
 		<div className={`${styles.root} ${darkMode ? styles.darkMode : ""}`}>
 			<Container maxWidth="lg">
 				<div className={styles.inner}>
-					<a className={styles.logo} href="/all-lists">
+
+					<Link className={styles.logo} to="/all-lists">
 						<div>Shopping-Manager</div>
-					</a>
+					</Link>
 					<div className={styles.buttons}>
-						{isAuth ? (
+						{isAuthenticated ? (
 							<>
 								<Link to="/shopping-list">
 									<Button variant="contained">{t("Create List")}</Button>
