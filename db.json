@@ -70,82 +70,6 @@
       "isArchived": true
     },
     {
-      "id": "7206a866-3f68-4652-a877-db609220ffbf",
-      "listName": "List Name....dsfghlkjh",
-      "items": [
-        {
-          "itemName": "bjnkm,.",
-          "quantity": 2,
-          "isSelected": false
-        },
-        {
-          "itemName": "ghfjkl",
-          "quantity": 1,
-          "isSelected": false
-        }
-      ],
-      "members": [
-        {
-          "name": "jhkl",
-          "email": "jhkl"
-        }
-      ],
-      "authorName": "john",
-      "totalItemCount": 3,
-      "completedItemCount": 0,
-      "uncompletedItemCount": 3,
-      "isArchived": true
-    },
-    {
-      "id": "3b07fc60-f56f-438d-aa4b-47b9cde70a4f",
-      "listName": "List nam",
-      "items": [
-        {
-          "itemName": "bvnm,..",
-          "quantity": 1,
-          "isSelected": false
-        },
-        {
-          "itemName": "",
-          "quantity": 1,
-          "isSelected": true
-        }
-      ],
-      "members": [
-        {
-          "name": "fghjk,l",
-          "email": "cvbnm"
-        }
-      ],
-      "authorName": "john",
-      "totalItemCount": 2,
-      "completedItemCount": 1,
-      "uncompletedItemCount": 1,
-      "isArchived": true
-    },
-    {
-      "id": "f62e33ca-7732-4c63-90f4-5131334d3c84",
-      "listName": "cvbnm,....",
-      "items": [
-        {
-          "itemName": "bnm,",
-          "quantity": 6,
-          "isSelected": true
-        },
-        {
-          "itemName": "bb",
-          "quantity": 1,
-          "isSelected": false
-        }
-      ],
-      "members": [],
-      "authorName": "john",
-      "totalItemCount": 7,
-      "completedItemCount": 1,
-      "uncompletedItemCount": 6,
-      "isArchived": true
-    },
-    {
       "id": "cf98e863-a451-4aa0-bc66-7bd6d117e698",
       "listName": "g",
       "items": [
@@ -171,6 +95,74 @@
       "completedItemCount": 0,
       "uncompletedItemCount": 3,
       "isArchived": true
+    },
+    {
+      "id": "e02e681f-d546-4065-bc5b-89ac29c7fe38",
+      "listName": "Lidl",
+      "items": [
+        {
+          "itemName": "banan",
+          "quantity": 1,
+          "isSelected": true
+        },
+        {
+          "itemName": "orange",
+          "quantity": 2,
+          "isSelected": true
+        },
+        {
+          "itemName": "bread",
+          "quantity": 3,
+          "isSelected": false
+        }
+      ],
+      "members": [
+        {
+          "name": "Oscar",
+          "email": "mail@tes.tom"
+        }
+      ],
+      "authorName": "john",
+      "totalItemCount": 6,
+      "completedItemCount": 2,
+      "uncompletedItemCount": 4,
+      "isArchived": true
+    },
+    {
+      "id": "1aa234c4-2061-4576-81d5-1d0b0fc352d7",
+      "listName": "sunday",
+      "items": [
+        {
+          "itemName": "item 1",
+          "quantity": 2,
+          "isSelected": true
+        },
+        {
+          "itemName": "item 2",
+          "quantity": 3,
+          "isSelected": true
+        },
+        {
+          "itemName": "item 3",
+          "quantity": 2,
+          "isSelected": true
+        },
+        {
+          "itemName": "banan",
+          "quantity": 1,
+          "isSelected": true
+        }
+      ],
+      "members": [
+        {
+          "name": "fghn",
+          "email": "bv nbm"
+        }
+      ],
+      "authorName": "john",
+      "totalItemCount": 8,
+      "completedItemCount": 4,
+      "uncompletedItemCount": 4
     }
   ]
 }

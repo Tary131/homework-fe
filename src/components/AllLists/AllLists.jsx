@@ -8,6 +8,7 @@ import { PieChart, Pie, Cell } from "recharts";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { useTranslation } from "react-i18next";
+import {mockShoppingLists} from "../../mockData.js";
 
 const AllLists = ({ darkMode }) => {
 	const [shoppingLists, setShoppingLists] = useState([]);
@@ -30,6 +31,7 @@ const AllLists = ({ darkMode }) => {
 			setShoppingLists(fetchedShoppingLists);
 		} catch (error) {
 			console.error("Error fetching shopping lists:", error.message);
+			setShoppingLists(mockShoppingLists);
 		}
 	};
 

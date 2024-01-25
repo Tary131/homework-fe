@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from "uuid";
-
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -27,7 +26,7 @@ import { useTranslation } from "react-i18next";
 import {useParams} from "react-router-dom";
 
 const ShoppingList = ({ darkMode }) => {
-	const [listName, setListName] = useState("List Name....");
+	const [listName, setListName] = useState("");
 	const [items, setItems] = useState([]);
 	const {id} = useParams()
 	const [inputValue, setInputValue] = useState("");
@@ -61,6 +60,7 @@ const ShoppingList = ({ darkMode }) => {
 			}
 
 			const fetchedData = await response.json();
+
 			const fetchedItem = fetchedData.filter((item)=> item.id === id )[0]
 
 
@@ -72,6 +72,7 @@ const ShoppingList = ({ darkMode }) => {
 
 		} catch (error) {
 			console.error("Error fetching shopping list:", error.message);
+
 		}
 	};
 
@@ -105,6 +106,16 @@ const ShoppingList = ({ darkMode }) => {
 				setListName(data.listName)
 			if (data.authorName)
 				setAuthorName(data.authorName)
+			if (data.items)
+				setItems(data.items)
+			if (data.inputValue)
+				setInputValue(data.inputValue)
+			if (data.totalItemCount)
+				setTotalItemCount(data.totalItemCount)
+			if (data.completedItemCount)
+				setCompletedItemCount(data.completedItemCount)
+			if (data.members)
+				setMembers(data.members)
 
 		}
 
@@ -239,6 +250,7 @@ const ShoppingList = ({ darkMode }) => {
 					onChange={(event) => setListName(event.target.value)}
 					variant="standard"
 					color="primary"
+					placeholder={t("List name...")}
 				/>
 				<div
 					className={`${styles.addItemBox} ${darkMode ? styles.darkMode : ""}`}
@@ -247,7 +259,7 @@ const ShoppingList = ({ darkMode }) => {
 						value={inputValue}
 						onChange={(event) => setInputValue(event.target.value)}
 						className={styles.addItemInput}
-						placeholder={t("Add an item...")}
+						placeholder={t("Add item...")}
 					/>
 					<FontAwesomeIcon
 						icon={faPlus}
